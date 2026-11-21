@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=84.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spec-first-agent"
+version = "0.1.0"
+description = "Force an agent to write the spec first: machine-checkable properties gate the implementation, and a task is DONE only when every property passes."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Gang Ji" }]
+keywords = ["agents", "specification", "property-testing", "verification", "harness"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.scripts]
+spec-first = "spec_first.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gangjig/spec-first-agent"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
